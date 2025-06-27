@@ -11,6 +11,7 @@ function createBot() {
     auth: 'offline',               // ✅ For cracked servers
     version: '1.21.1',             // 🧩 Match your server version
   });
+  bot.on('death', () => bot.chat('/respawn'));
 
   bot.on('spawn', () => {
     console.log('✅ Bot joined the server!');
@@ -20,9 +21,9 @@ function createBot() {
       const forward = true;
       bot.setControlState('forward', forward);
       setTimeout(() => bot.setControlState('forward', false), 2000); // move for 2 sec
-    }, 15000); // every 15 sec
+    }, 15000); // every 1 sec
 
-    // Optional: jump every 30 sec
+    // Optional: jump every 3 sec
     setInterval(() => {
       bot.setControlState('jump', true);
       setTimeout(() => bot.setControlState('jump', false), 500);
